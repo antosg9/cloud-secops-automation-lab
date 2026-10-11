@@ -84,7 +84,7 @@ resource "aws_instance" "private_vm" {
   user_data = <<-EOF
         #!/bin/bash
         set -euo pipefail
-        sed -i 's/^#\?PasswordAuthentication.*/PasswordAuthentication no /' /etc/ssh/sshd_config
+        sed -i 's/^#\?PasswordAuthentication.*/PasswordAuthentication no/' /etc/ssh/sshd_config
         sed -i 's/^#\?PermitRootLogin.*/PermitRootLogin no/' /etc/ssh/sshd_config
         systemctl restart ssh
     EOF
