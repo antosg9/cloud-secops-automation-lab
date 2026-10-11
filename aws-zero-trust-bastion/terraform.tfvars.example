@@ -1,0 +1,10 @@
+# Copy this file to terraform.tfvars and fill in your own values.
+# terraform.tfvars is git-ignored: never commit real values.
+
+owner = "your-name"
+
+# Your public IP followed by /32 (find it with: curl.exe -s https://checkip.amazonaws.com)
+admin_ip_cidr = "203.0.113.42/32"
+
+# Content of your .pub file (never the private key)
+ssh_public_key = "ssh-ed25519 AAAAC3... your-comment"
