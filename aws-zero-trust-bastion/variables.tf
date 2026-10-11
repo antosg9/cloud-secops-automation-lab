@@ -56,3 +56,19 @@ variable "admin_ip_cidr" {
     error_message = "admin_ip_cidr must be a restricted IPv4 CIDR (/24 to /32). 0.0.0.0/0 is forbidden."
   }
 }
+
+variable "instance_type" {
+  description = "EC2 instance type."
+  type        = string
+  default     = "t3.micro"
+}
+
+variable "ssh_public_key" {
+  description = "SSH public key content (ed25518)."
+  type        = string
+
+  validation {
+    condition     = can(regex("^ssh-(ed25519|rsa) ", var.ssh_public_key))
+    error_message = "ssh_public_key must be an OpenSSH public keykey (starting with ssh-ed25519 or ssh-rsa), not a private key."
+  }
+}
